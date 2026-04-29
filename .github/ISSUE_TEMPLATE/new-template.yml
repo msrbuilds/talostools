@@ -1,0 +1,121 @@
+name: 🧩 New template submission
+description: Propose a new template for the Talos.tools library.
+title: "[Template] "
+labels: ["pending-review", "new-template"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! Templates are reviewed manually before they go live on [talos.tools/templates](https://talos.tools/templates).
+
+        After **3–5 accepted submissions** you'll be invited as a trusted contributor with direct in-app submission access — no more GitHub round-trip.
+
+        ---
+
+        ### 🛡️ Security rules — auto-rejection criteria
+        Submissions containing any of the following are auto-rejected:
+
+        - `fetch(`, `XMLHttpRequest`, `navigator.sendBeacon`, `WebSocket`, `EventSource`
+        - `eval(`, `new Function(`, `setTimeout("…", 0)` with a string arg
+        - `document.cookie`, `localStorage`, `sessionStorage`, `indexedDB`
+        - `<input type="password">` (phishing risk)
+        - `<script src="https://…">` (external script tag)
+        - `<iframe>`, `<object>`, `<embed>`
+        - `@import url(http…)` in CSS, `expression(…)` in CSS
+
+        Templates are **inline-only**. If your template legitimately needs an external icon/font from a known CDN, mention it in the issue — admins maintain a small allowlist.
+
+  - type: input
+    id: name
+    attributes:
+      label: Template name
+      placeholder: "Eco Hero with Image Gallery Strip"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description (min 20 chars)
+      description: One paragraph explaining what the template is and when someone would use it.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Template type
+      options:
+        - component
+        - section
+        - page
+        - full-template
+    validations:
+      required: true
+
+  - type: input
+    id: categories
+    attributes:
+      label: Categories
+      description: Comma-separated category names from the Talos.tools library (e.g. `Hero Sections, Carousels & Sliders`)
+    validations:
+      required: true
+
+  - type: textarea
+    id: html_css
+    attributes:
+      label: HTML / CSS / JS export (required)
+      description: Paste the JSON object with `html`, `css`, `js` keys. JS is optional.
+      render: json
+      placeholder: |
+        {
+          "html": "<section class=\"hero\">…</section>",
+          "css": ".hero { … }",
+          "js": ""
+        }
+    validations:
+      required: true
+
+  - type: textarea
+    id: react_tailwind
+    attributes:
+      label: React / Tailwind component (optional)
+      description: A self-contained TSX/JSX component.
+      render: tsx
+
+  - type: textarea
+    id: elementor
+    attributes:
+      label: Elementor (Free) JSON (optional)
+      description: Container/Flexbox JSON exported from Elementor 3.21+. The Free variant should use an HTML widget for any custom CSS.
+      render: json
+
+  - type: textarea
+    id: elementor_pro
+    attributes:
+      label: Elementor (Pro) JSON (optional)
+      description: Pro variant using container Custom CSS instead of an HTML widget.
+      render: json
+
+  - type: input
+    id: preview_image
+    attributes:
+      label: Preview screenshot URL (optional but recommended)
+      description: A direct image URL — preferably from Imgur, GitHub uploads, or your own host.
+
+  - type: input
+    id: handles
+    attributes:
+      label: Where can we credit you?
+      description: GitHub / Twitter / portfolio link — used for attribution if approved.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Self-check
+      description: Confirm before submitting
+      options:
+        - label: My code does not use `fetch`, `XMLHttpRequest`, `eval`, `document.cookie`, `localStorage`, password inputs, external `<script src>`, or `<iframe>`.
+          required: true
+        - label: I have the right to share this template under the Talos.tools community license (MIT-equivalent).
+          required: true

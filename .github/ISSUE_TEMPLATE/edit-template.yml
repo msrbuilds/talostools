@@ -1,0 +1,80 @@
+name: ✏️ Edit an existing template
+description: Suggest changes to an already-published template on talos.tools/templates.
+title: "[Edit] "
+labels: ["pending-review", "edit-suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggesting an improvement to an existing template? Awesome.
+
+        ---
+
+        ### 🛡️ Security rules — auto-rejection criteria
+        Same as new templates — your edited code may **not** contain:
+
+        - `fetch(`, `XMLHttpRequest`, `navigator.sendBeacon`, `WebSocket`, `EventSource`
+        - `eval(`, `new Function(`, `setTimeout("…", 0)` with a string arg
+        - `document.cookie`, `localStorage`, `sessionStorage`, `indexedDB`
+        - `<input type="password">`, external `<script src>`, `<iframe>`, `<object>`, `<embed>`
+        - `@import url(http…)` or `expression(…)` in CSS
+
+        Paste the **complete** updated export(s) below — not a diff.
+
+  - type: input
+    id: target_url
+    attributes:
+      label: Template URL
+      description: Full URL of the template you're editing (e.g. `https://talos.tools/templates/eco-hero-gallery-strip`)
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_changes
+    attributes:
+      label: What you're changing and why
+      description: Bullet list of changes + reasoning (e.g. "Better mobile spacing", "Replaces broken image", "Adds dark mode").
+    validations:
+      required: true
+
+  - type: textarea
+    id: html_css
+    attributes:
+      label: Updated HTML/CSS/JS
+      description: Paste the **complete** updated export — JSON object with `html`, `css`, `js` keys.
+      render: json
+
+  - type: textarea
+    id: react_tailwind
+    attributes:
+      label: Updated React/Tailwind
+      description: Full new copy of the component.
+      render: tsx
+
+  - type: textarea
+    id: elementor
+    attributes:
+      label: Updated Elementor (Free) JSON
+      render: json
+
+  - type: textarea
+    id: elementor_pro
+    attributes:
+      label: Updated Elementor (Pro) JSON
+      render: json
+
+  - type: input
+    id: handles
+    attributes:
+      label: Where can we credit you?
+      description: GitHub / Twitter / portfolio link.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Self-check
+      options:
+        - label: My code does not use `fetch`, `XMLHttpRequest`, `eval`, `document.cookie`, `localStorage`, password inputs, external `<script src>`, or `<iframe>`.
+          required: true
+        - label: I have the right to share these changes under the Talos.tools community license.
+          required: true

@@ -1,0 +1,49 @@
+name: 🐛 Bug report
+description: Something is broken on talos.tools (a tool, generator, template, or anything else).
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: input
+    id: page_url
+    attributes:
+      label: Page URL
+      description: Where did you see the bug?
+      placeholder: "https://talos.tools/…"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: Describe the bug. What did you expect to happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to …
+        2. Click …
+        3. See error …
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile Safari (iOS)
+        - Chrome (Android)
+        - Other
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / video
+      description: Drag-and-drop images or a screen recording if helpful.

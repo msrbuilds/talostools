@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Talos.tools website
+    url: https://talos.tools/templates
+    about: Browse the live template library, submit (if you're a trusted contributor), or copy any template's exports.
+  - name: 🛡️ Security or abuse report
+    url: mailto:mian.shahzad.raza@gmail.com
+    about: Report a security vulnerability, malicious template, or copyright issue privately.
