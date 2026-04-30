@@ -26,6 +26,24 @@ body:
         Templates are **inline-only**. If your template legitimately needs an external icon/font from a known CDN, mention it in the issue — admins maintain a small allowlist.
 
   - type: input
+    id: talos_username
+    attributes:
+      label: Talos.tools username
+      description: Your username on [talos.tools](https://talos.tools) — used to link this submission to your account.
+      placeholder: "your-username"
+    validations:
+      required: true
+
+  - type: input
+    id: talos_email
+    attributes:
+      label: Talos.tools account email
+      description: The email associated with your [talos.tools](https://talos.tools) account.
+      placeholder: "you@example.com"
+    validations:
+      required: true
+
+  - type: input
     id: name
     attributes:
       label: Template name

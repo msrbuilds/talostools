@@ -22,6 +22,24 @@ body:
         Paste the **complete** updated export(s) below — not a diff.
 
   - type: input
+    id: talos_username
+    attributes:
+      label: Talos.tools username
+      description: Your username on [talos.tools](https://talos.tools) — used to link this suggestion to your account.
+      placeholder: "your-username"
+    validations:
+      required: true
+
+  - type: input
+    id: talos_email
+    attributes:
+      label: Talos.tools account email
+      description: The email associated with your [talos.tools](https://talos.tools) account.
+      placeholder: "you@example.com"
+    validations:
+      required: true
+
+  - type: input
     id: target_url
     attributes:
       label: Template URL
